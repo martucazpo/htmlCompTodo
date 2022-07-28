@@ -1,4 +1,4 @@
-import { ADD_TODO, EDIT_TODO, GET_TODOS } from "./types.js";
+import { ADD_TODO, CHANGE_EDIT, DELETE_TODO, EDIT_TODO } from "./types.js";
 import { uuidv4 } from "../js/uuidv4.js";
 
 export const addTodo = (todo) =>{
@@ -16,8 +16,16 @@ export const editTodo = (id) =>{
     }
 }
 
-export const getTodos = () =>{
+export const deleteTodo = (id) =>{
     return {
-        type: GET_TODOS
+        type: DELETE_TODO,
+        payload: id
+    }
+}
+
+export const changeEdit = (id) => {
+    return {
+        type: CHANGE_EDIT,
+        payload: id
     }
 }

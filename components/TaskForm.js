@@ -50,7 +50,7 @@ class TaskForm extends HTMLElement {
       this.shadowRoot.querySelector("#formButton").style =
         "background-color: green; color: white;";
       this.shadowRoot.querySelector("#formButton").innerText = "ADD";
-    } else if (this.getAttribute("data") === "editForm") {
+    } else {
       this.shadowRoot.querySelector("#formButton").style =
         "background-color: orchid; color: white;";
       this.shadowRoot.querySelector("#formButton").innerText = "EDIT";
@@ -68,7 +68,8 @@ class TaskForm extends HTMLElement {
   }
   handleEdit(e, task) {
     e.preventDefault()
-    console.log("Edit");
+    state.editId = ""
+    state.isEdit = false
     store.dispatch(editTodo(task))
   }
   handleInput(e) {
